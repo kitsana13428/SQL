@@ -1,0 +1,19 @@
+//ตาราง
+ Employee
+    1.id pk
+    2.fname int notnull
+    3.lname text notnull
+    4.address text notnull
+    5.tel text notnull
+    6.salary numeric notnull
+///////////////////////////
+
+//เพิ่มค่า
+INSERT INTO Employee (fname, lname, address, tel, salary) 
+VALUES ('kitsana', 'rattanapholsaen', 'prachinburi','080-xxxxxx', 25000);
+----------------------
+//เพิ่มค่าแบบไม่กำหนด 
+INSERT INTO Employee  
+VALUES (null,'สมหมาย', 'ใจดี', 'ชลบุรี', '080-xxx', 20000)
+---------------
+
