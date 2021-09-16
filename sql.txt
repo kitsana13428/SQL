@@ -53,4 +53,29 @@ INSERT INTO Employee(fname, lname, salary)
 VALUES ('วันดี', 'ทองดี', 35000),('สมหญิง', 'ใจงาม', 20000), ('หัสดิน', 'อยู่เย็น', 15000)
 ---------------
 
+//ใช้เงื่อนไขเช็ค ถ้าราคาต่ำกว่า 20 ไม่ได้ 
+"product_price"	REAL NOT NULL CHECK("product_price" >= 20)
+---------------
+
+//การเรียกดูข้อมูลบางตัว fname และ lname
+SELECT fname,lname FROM Employee
+--------------
+
+//การใช้ AS เพื่อเปลี่ยนชื่อหัวตาราง
+SELECT fname AS "ชื่อ", lname AS "นามสกุล", tel AS "เบอร์โทร"
+FROM Employee
+--------------
+
+//การ distinct แสดงข้อมูลไม่ซ้ำ เลือกนามสกุลที่ไม่ซ้ำกัน
+SELECT DISTINCT
+lname AS "นามสกุล" 
+FROM Employee
+-------------
+
+//หาข้อมูลแบบมีเงื่อนไข
+SELECT *
+FROM Employee
+WHERE address = "กรุงเทพ"
+--------------
+
 //
