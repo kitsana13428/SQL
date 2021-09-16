@@ -76,6 +76,32 @@ FROM Employee
 SELECT *
 FROM Employee
 WHERE address = "กรุงเทพ"
+    ---หรือ WHERE salary <= 20000
+    ---หรือ WHERE address = "กรุงเทพ" AND salary >= 20000
+    ---หรือ WHERE NOT address = "กรุงเทพ" 
 --------------
 
-//
+//หาข้อมูลที่เป็นค่าว่าง null
+SELECT *
+FROM Employee
+WHERE tel IS NULL 
+--------------
+
+//เรียงลำดับ ODER BY 
+SELECT *
+FROM Employee
+ORDER BY salary ASC --น้อยไปหามาก
+    ---หรือ ORDER BY salary DESC --มากไปหาน้อย
+--------------
+
+//ใช้ LIMIT ในการหาข้อมูล 5 อันดับแรก
+SELECT *
+FROM Employee
+ORDER BY salary DESC
+LIMIT 5
+------------
+
+//เอาข้อมลอีกตาราง ใส่ในอีกตาราง (ต้องมีชนิดข้อมูล ลักษณะเหมือนกันหมด)
+INSERT INTO Products_Place (id,name,price)
+    SELECT product_id,product_name,product_price
+        FROM Products
