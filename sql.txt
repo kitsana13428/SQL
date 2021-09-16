@@ -141,4 +141,29 @@ SELECT fname, lname, salary
 FROM Employee WHERE (salary*12) >= 300000
 ------------
 
-//
+//ใช้เงื่อนไขคณิต ในการดึงข้อมูล
+SELECT 
+COUNT(*) AS "จำนวนพนักงาน",
+MAX(salary) AS "เงินมากสุด",
+MIN(salary) AS "เงินต่ำสุด",
+SUM(salary) AS "รวมเงินเดือน"
+FROM Employee
+-------------
+
+//ใช้เงื่อนไข CASE 
+SELECT fname, salary,
+(
+CASE salary 
+WHEN 35000 THEN 'PM'
+WHEN 29000 THEN 'BA'
+ELSE 'DEVELOPER' END
+) AS 'ตำแหน่ง'
+FROM Employee
+ORDER BY Salary DESC
+------------
+
+//การจัดกลุ่ม เช่น จังหวัดนี้มีคนกี่คน
+SELECT address , COUNT(*) 
+FROM Employee
+GROUP BY address
+------------
