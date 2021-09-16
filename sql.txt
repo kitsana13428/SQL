@@ -105,3 +105,40 @@ LIMIT 5
 INSERT INTO Products_Place (id,name,price)
     SELECT product_id,product_name,product_price
         FROM Products
+-----------
+
+//อัพเดท แก้ไขข้อมูล
+UPDATE Employee
+SET fname = "กฤษณะ", lname = "รัตนพลแสน"
+WHERE id = 1
+
+UPDATE Employee
+SET address = "ระยอง"
+WHERE address IS NULL 
+    --เพิ่มข้อมูลที่เป็นค่าว่าง
+-----------
+
+//ลบข้อมูลในตาราง
+DELETE FROM Employee
+WHERE fname = '004'
+-----------
+
+//ค้นหาข้อมูล 
+---ขึ้นต้นด้วย ส.
+SELECT * FROM Employee
+WHERE fname LIKE 'ส%'
+
+--ค้นหาที่มี ส ในชื่อ
+SELECT * FROM Employee
+WHERE fname LIKE '%ส%'
+
+--ค้นหาด้วย _ หาเลขไรก็ได้ แต่ 3 หลักสุดท้ายเป็นเลข 0
+SELECT * FROM Employee
+WHERE salary LIKE '_000%'
+
+--ค้นหาข้อมูลแบบมีเงื่อนไข คณิตศาสตร์ (คนที่รายได้ประจำปีมากกว่า 3 แสน)
+SELECT fname, lname, salary
+FROM Employee WHERE (salary*12) >= 300000
+------------
+
+//
