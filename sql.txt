@@ -6,14 +6,51 @@
     4.address text notnull
     5.tel text notnull
     6.salary numeric notnull
+
+    CREATE TABLE "Employee" (
+	"id"	INTEGER,
+	"fname"	TEXT NOT NULL,
+	"lname"	TEXT NOT NULL,
+	"address"	TEXT,
+	"tel"	TEXT,
+	"salary"	NUMERIC NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+
+//ตาราง Products
+ Products
+    1.product_id
+    2.product_name
+    3.product_d
+    4.product_price
+
+    CREATE TABLE "Products" (
+	"products_id"	TEXT NOT NULL,
+	"product_name"	TEXT NOT NULL,
+	"product_d"	TEXT,
+	"product_price"	REAL NOT NULL,
+	PRIMARY KEY("products_id")
+);
 ///////////////////////////
 
 //เพิ่มค่า
 INSERT INTO Employee (fname, lname, address, tel, salary) 
 VALUES ('kitsana', 'rattanapholsaen', 'prachinburi','080-xxxxxx', 25000);
 ----------------------
+
 //เพิ่มค่าแบบไม่กำหนด 
 INSERT INTO Employee  
 VALUES (null,'สมหมาย', 'ใจดี', 'ชลบุรี', '080-xxx', 20000)
 ---------------
 
+//เพิ่มค่าแค่บางคอลัม (ค่าว่างจะเป็น not null)
+INSERT INTO Employee(fname, lname, salary)
+VALUES ('นิชา', 'ทองดี', 30000)
+---------------
+
+//เพิ่มค่าหลายๆค่า
+INSERT INTO Employee(fname, lname, salary)
+VALUES ('วันดี', 'ทองดี', 35000),('สมหญิง', 'ใจงาม', 20000), ('หัสดิน', 'อยู่เย็น', 15000)
+---------------
+
+//
