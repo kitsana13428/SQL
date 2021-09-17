@@ -189,3 +189,19 @@ FROM Products_v1,Categaries
 WHERE Products_v1.type_id = Categaries.id
 -------------
 
+//inner join ทำงานเหมือนข้างบน
+SELECT Products_v1.product_name, 
+Products_v1.price,
+Categaries.name
+FROM Products_v1 INNER JOIN Categaries
+ON Products_v1.type_id = Categaries.id
+------------
+
+//LEFT JOIN ดึงตารางด้านซ้ายมาทั้งหมด มาเชื่อมกับอีกตาราง
+SELECT Products_v1.product_name, 
+Products_v1.price,
+Categories.name
+FROM Products_v1 LEFT JOIN Categories
+ON Products_v1.type_id = Categories.id
+------------
+
