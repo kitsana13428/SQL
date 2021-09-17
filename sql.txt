@@ -167,3 +167,25 @@ SELECT address , COUNT(*)
 FROM Employee
 GROUP BY address
 ------------
+
+//การใช้ Sub Query ในการหาข้อมูล ระหว่างกัน 2 ตาราง
+ SELECT fname, lname, address
+ FROM Employee
+ WHERE address = (SELECT city FROM Customer WHERE fname = 'สมชาย')
+ -----------
+
+//สร้างตารางด้วย Sup Query 
+ --เพิ่มเงินเดือนคนที่น้อยกว่า 15000 + 3000 และทำการสร้างตารางใหม่
+CREATE TABLE bestEmployee AS
+SELECT id, fname, lname, address, salary+3000 AS 'salary'
+FROM Employee
+    WHERE address = (SELECT city FROM Customer WHERE fname = 'สมหมาย')
+        AND salary<=15000
+-----------
+
+//การหาข้อมูล โดย 2 ตารางเชื่อมถึงกัน PK และ FK
+SELECT Products_v1.product_name, Products_v1.price, Categaries.name
+FROM Products_v1,Categaries
+WHERE Products_v1.type_id = Categaries.id
+-------------
+
